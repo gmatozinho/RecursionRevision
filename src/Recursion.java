@@ -23,5 +23,19 @@ public class Recursion {
         return 1 + div(a - b, b);
     }
 
+    public static double sqrt(double value,double kick, double tolerance){
+        double aprox = Math.abs(kick + (value/kick))/2;
+
+        if(value <0 || tolerance <0)
+        {
+            return Double.NaN;
+        }
+        else if(Math.abs(aprox*aprox-value)<=tolerance){
+            return aprox;
+        }
+        return sqrt(value,aprox,tolerance);
+
+    }
+
 
 }

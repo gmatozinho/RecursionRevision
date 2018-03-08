@@ -8,6 +8,9 @@ public class Main {
         int result = Recursion.sum(array);
         int resultProd = Recursion.prod(-5,7);
         int resultDiv = Recursion.div(100,-10);
-        System.out.println("Hello World!"+resultProd);
+
+        double resultSqrt = Recursion.sqrt(64,1,0);
+        System.out.println("Hello World!"+resultSqrt);
+
     }
 }
