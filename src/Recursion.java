@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Recursion {
 
@@ -82,6 +83,38 @@ public class Recursion {
         return result;
     }
 
+    public static int fact(int n)
+    {
+        int result;
+
+        if(n== 0) return 0;
+        else if(n==1) return 1;
+        result = fact(n-1) * n;
+        return result;
+    }
+
+    public static ArrayList<ArrayList<Integer>> permutation(ArrayList<Integer> array)
+    {
+        if (array.size() == 1) {
+            ArrayList<ArrayList<Integer>> listArray = new ArrayList<>();
+            listArray.add(array);
+            return listArray;
+        } else {
+            ArrayList<ArrayList<Integer>> listArray = new ArrayList<>();
+            for (Integer i: array) {
+                ArrayList<Integer> subList = new ArrayList<>(array);
+                subList.remove(i);
+                ArrayList<ArrayList<Integer>> subListNew = permutation(subList);
+                for (ArrayList<Integer> _list: subListNew) {
+                    ArrayList<Integer> local = new ArrayList<>();
+                    local.add(i);
+                    local.addAll(_list);
+                    listArray.add(local);
+                }
+            }
+            return listArray;
+        }
+    }
 
 
 }
