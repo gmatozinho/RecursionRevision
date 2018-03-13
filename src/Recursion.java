@@ -89,8 +89,7 @@ public class Recursion {
 
         if(n== 0) return 0;
         else if(n==1) return 1;
-        result = fact(n-1) * n;
-        return result;
+        return fact(n-1) * n;
     }
 
     public static ArrayList<ArrayList<Integer>> permutation(ArrayList<Integer> array)
@@ -115,6 +114,26 @@ public class Recursion {
             return listArray;
         }
     }
+
+   public static ArrayList<ArrayList<Integer>> permPy(ArrayList<Integer> elems){
+       if (elems.size() == 1) {
+           ArrayList<ArrayList<Integer>> listArray = new ArrayList<>();
+           listArray.add(elems);
+           return listArray;
+       }
+       else {
+           ArrayList<ArrayList<Integer>> ps = new ArrayList<>();
+           for (Integer x : elems) {
+               ArrayList<Integer> array1 = new ArrayList<>(elems);
+               array1.remove(x);
+               for (ArrayList<Integer> p : permPy(array1)) {
+                   p.add(0, x);
+                   ps.add(p);
+               }
+           }
+           return ps;
+       }
+   }
 
 
 }
